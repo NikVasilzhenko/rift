@@ -1,0 +1,17 @@
+.btn-up{
+  @include btn-reset;
+  position: absolute;
+  bottom: 128px;
+  left: 24px;
+  z-index: 100;
+  &:hover{transform: translateY(-8px);}
+  @media only screen and (max-width : 1430px){
+    display: block;
+    left: 50%;
+    margin-left: -24px;
+    bottom: 42px;
+  }
+  @media only screen and (max-width : 1023px){
+    display: none;
+  }  
+}

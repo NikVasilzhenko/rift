@@ -1,0 +1,121 @@
+.header{
+  position: relative;
+  z-index: 10;
+  &__wrap{
+    padding: 32px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  &__bar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .menu{margin-right: 92px;}
+  }
+  @media only screen and (max-width : 767px){
+    &__wrap{padding: 24px 0;}
+    &__bar{display: none;}
+  }
+}
+.header-logo{display: block;}
+.header-soc{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  li{
+    margin-left: 16px;
+    &:first-child{margin-left: 0;}
+    a{
+      display: block;
+      width: 48px;
+      height: 48px;
+      position: relative;
+      transition: transform .25s;
+      &:hover{transform: translateY(-8px);}
+    }
+  }
+}
+
+.menu{
+  ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    li{
+      margin: 0 12px;
+      &:first-child{margin-left: 0;}
+      &:last-child{margin-right: 0;}
+      a{
+        @include b1;
+        white-space: nowrap;
+        color: #fff;
+        &:hover{color: #0EF2F2;}
+      }
+    }
+  }
+}
+
+.mob-menu-wrap{
+  display: none;
+  @media only screen and (max-width : 767px){
+    @include dark-2;
+    display: block;
+    position: absolute;
+    right: 16px;
+    top: 100%;
+    width: 343px;
+    max-width: calc(100% - 32px);
+    margin-top: -16px;
+    padding: 24px;
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: transform .5s cubic-bezier(.475,.425,0,.995), opacity .5s cubic-bezier(.475,.425,0,.995);
+    z-index: 10;
+    .menu{
+      margin-bottom: 63px;
+      ul{
+        display: block;
+        li{margin: 0 0 32px;}
+      }
+    }
+    &.open{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.burger{
+  display: none;
+  @media only screen and (max-width : 767px){
+    @include btn-reset;
+    display: block;
+    width: 48px;
+    height: 48px;
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid #0EF2F2;
+    span{
+      display: block;
+      width: 18px;
+      height: 2px;
+      background-color: #0EF2F2;
+      position: absolute;
+      left: 14px;
+      transition: transform .25s, top .25s .25s;
+      &:nth-child(1){top: 17px;}
+      &:nth-child(2){top: 22px;}
+      &:nth-child(3){top: 27px;}
+    }
+    &.open{
+      span{
+        transition: top .25s, transform .25s .25s;        
+        &:nth-child(1){top: 22px; transform: rotate(45deg);}
+        &:nth-child(3){top: 22px; transform: rotate(-45deg);}
+        &:nth-child(2){display: none;}
+      }
+    }
+  }  
+}
