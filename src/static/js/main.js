@@ -19,10 +19,12 @@ window.addEventListener('DOMContentLoaded', function(){
 //      document.getElementById('js-header').classList.remove('fix');
 //    }
 //  }
-  document.querySelector('.js-up').addEventListener('click', function(){
-    document.querySelector('.header').scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+  if(document.querySelector('.js-up')){
+    document.querySelector('.js-up').addEventListener('click', function(){
+      document.querySelector('.header').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     });
-  });
+  }
 });
